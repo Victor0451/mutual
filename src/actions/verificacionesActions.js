@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const verificarDNITit = id => async dispatch => {
   await axios
-    .get(`http://190.231.32.232:5002/api/werchow/maestro/dni/${id}`)
+    .get(`http://190.231.32.232:5002/api/mutual/maestro/dni/${id}`)
 
     .then(res =>
       dispatch({
@@ -19,7 +19,7 @@ export const verificarDNITit = id => async dispatch => {
 
 export const verificarDNIAdh = id => async dispatch => {
   await axios
-    .get(`http://190.231.32.232:5002/api/werchow/adherent/dni/${id}`)
+    .get(`http://190.231.32.232:5002/api/mutual/adherent/dni/${id}`)
 
     .then(res =>
       dispatch({

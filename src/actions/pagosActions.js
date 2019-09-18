@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 
 export const mostrarPagosTitular = (id) => async dispatch => {
-    const respuesta = await axios.get(`http://190.231.32.232:5002/api/werchow/pagos/pagos/${id}`);
+    const respuesta = await axios.get(`http://190.231.32.232:5002/api/mutual/pagos/pagos/${id}`);
     dispatch({
         type: MOSTRAR_PAGOS,
         payload: respuesta.data

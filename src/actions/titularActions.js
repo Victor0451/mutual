@@ -12,7 +12,7 @@ import toastr from "../utils/toastr";
 
 export const mostrarTitulares = () => async dispatch => {
   await axios
-    .get("http://190.231.32.232:5002/api/werchow/maestro/titulares")
+    .get("http://190.231.32.232:5002/api/mutual/maestro/titulares")
     .then(res =>
       dispatch({
         type: MOSTRAR_TITULARES,
@@ -31,7 +31,7 @@ export const mostrarTitulares = () => async dispatch => {
 
 export const ultimoContrato = () => async dispatch => {
   const respuesta = await axios.get(
-    "http://190.231.32.232:5002/api/werchow/maestro/lastcontrato"
+    "http://190.231.32.232:5002/api/mutual/maestro/lastcontrato"
   );
   dispatch({
     type: ULTIMO_CONTRATO_TITULAR,
@@ -41,7 +41,7 @@ export const ultimoContrato = () => async dispatch => {
 
 export const mostrarTitular = id => async dispatch => {
   await axios
-    .get(`http://190.231.32.232:5002/api/werchow/maestro/titular/${id}`)
+    .get(`http://190.231.32.232:5002/api/mutual/maestro/titular/${id}`)
 
     .then(res =>
       dispatch({
@@ -59,7 +59,7 @@ export const mostrarTitular = id => async dispatch => {
 export const mostrarTitularApellido = apellido => async dispatch => {
   await axios
     .get(
-      `http://190.231.32.232:5002/api/werchow/maestro/titularapellido/${apellido}`
+      `http://190.231.32.232:5002/api/mutual/maestro/titularapellido/${apellido}`
     )
 
     .then(res =>
@@ -77,7 +77,7 @@ export const mostrarTitularApellido = apellido => async dispatch => {
 
 export const mostrarTitularDNI = dni => async dispatch => {
   await axios
-    .get(`http://190.231.32.232:5002/api/werchow/maestro/dni/${dni}`)
+    .get(`http://190.231.32.232:5002/api/mutual/maestro/dni/${dni}`)
 
     .then(res =>
       dispatch({
@@ -94,7 +94,7 @@ export const mostrarTitularDNI = dni => async dispatch => {
 
 export const bajaTitular = id => async dispatch => {
   await axios
-    .put(`http://190.231.32.232:5002/api/werchow/maestro/baja/${id}`, id)
+    .put(`http://190.231.32.232:5002/api/mutual/maestro/baja/${id}`, id)
 
     .then(
       res =>
@@ -113,7 +113,7 @@ export const bajaTitular = id => async dispatch => {
 
 export const agregarTitular = titular => async dispatch => {
   await axios
-    .post(`http://190.231.32.232:5002/api/werchow/maestro/nuevo`, titular)
+    .post(`http://190.231.32.232:5002/api/mutual/maestro/nuevo`, titular)
 
     .then(
       res =>
@@ -134,7 +134,7 @@ export const agregarTitular = titular => async dispatch => {
 export const editarTitular = titularModf => async dispatch => {
   await axios
     .put(
-      `http://190.231.32.232:5002/api/werchow/maestro/editar/${titularModf.CONTRATO}`,
+      `http://190.231.32.232:5002/api/mutual/maestro/editar/${titularModf.CONTRATO}`,
       titularModf
     )
 

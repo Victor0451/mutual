@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 
 export const mostrarMemos = () => async dispatch => {
-  const respuesta = await axios.get("http://190.231.32.232:5002/api/werchow/maestro/memo/memos");
+  const respuesta = await axios.get("http://190.231.32.232:5002/api/mutual/maestro/memo/memos");
   dispatch({
     type: MOSTRAR_MEMOS,
     payload: respuesta.data
@@ -13,7 +13,7 @@ export const mostrarMemos = () => async dispatch => {
 };
 
 export const ultimoMemo = id => async dispatch => {
-  const respuesta = await axios.get(`http://190.231.32.232:5002/api/werchow/maestro/memo/lastmemo/${id}`);
+  const respuesta = await axios.get(`http://190.231.32.232:5002/api/mutual/maestro/memo/lastmemo/${id}`);
   dispatch({
     type: ULTIMO_MEMO,
     payload: respuesta.data
@@ -23,7 +23,7 @@ export const ultimoMemo = id => async dispatch => {
 export const agregarMemo = (memo) => async dispatch => {
 
   const respuesta = await axios.post(
-    "http://190.231.32.232:5002/api/werchow/maestro/memo/nuevo",
+    "http://190.231.32.232:5002/api/mutual/maestro/memo/nuevo",
    memo
   );
 

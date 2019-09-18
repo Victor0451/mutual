@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const mostrarHistoria = id => async dispatch => {
   const respuesta = await axios.get(
-    `http://190.231.32.232:5002/api/werchow/historia/historias/${id}`
+    `http://190.231.32.232:5002/api/mutual/historia/historias/${id}`
   );
   dispatch({
     type: MOSTRAR_HISTORIA,
@@ -14,7 +14,7 @@ export const mostrarHistoria = id => async dispatch => {
 
 export const mostrarHistoriaFox = id => async dispatch => {
   const respuesta = await axios.get(
-    `http://190.231.32.232:5002/api/werchow/historia/historiasfox/${id}`
+    `http://190.231.32.232:5002/api/mutual/historia/historiasfox/${id}`
   );
   dispatch({
     type: MOSTRAR_HISTORIA,
@@ -24,7 +24,7 @@ export const mostrarHistoriaFox = id => async dispatch => {
 
 export const registrarHistoria = historia => async dispatch => {
   const respuesta = await axios.post(
-    "http://190.231.32.232:5002/api/werchow/historia/nuevo",
+    "http://190.231.32.232:5002/api/mutual/historia/nuevo",
     historia
   );
   dispatch({

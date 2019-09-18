@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 
 export const mostrarPagobcoTitular = (id) => async dispatch => {
-    const respuesta = await axios.get(`http://190.231.32.232:5002/api/werchow/pagobco/pagobco/${id}`);
+    const respuesta = await axios.get(`http://190.231.32.232:5002/api/mutual/pagobco/pagobco/${id}`);
     dispatch({
         type: MOSTRAR_PAGOBCO,
         payload: respuesta.data

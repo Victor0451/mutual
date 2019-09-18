@@ -185,7 +185,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link to="/" className="navbar-brand">
-          Werchow{" "}
+          Mutual{" "}
         </Link>
         <button
           className="navbar-toggler"

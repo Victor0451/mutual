@@ -12,7 +12,7 @@ import toastr from "../utils/toastr";
 
 export const mostrarAdhByDNI = id => async dispatch => {
   const respuesta = await axios.get(
-    `http://190.231.32.232:5002/api/werchow/werchow/adherent/dni/${id}`
+    `http://190.231.32.232:5002/api/mutual/mutual/adherent/dni/${id}`
   );
   dispatch({
     type: MOSTRAR_ADHERENTE,
@@ -22,7 +22,7 @@ export const mostrarAdhByDNI = id => async dispatch => {
 
 export const mostrarAdherentes = () => async dispatch => {
   const respuesta = await axios.get(
-    "http://190.231.32.232:5002/api/werchow/adherent/aderentes"
+    "http://190.231.32.232:5002/api/mutual/adherent/aderentes"
   );
   dispatch({
     type: MOSTRAR_ADHERENTES,
@@ -32,7 +32,7 @@ export const mostrarAdherentes = () => async dispatch => {
 
 export const mostrarAdherentesDelTitular = id => async dispatch => {
   const respuesta = await axios.get(
-    `http://190.231.32.232:5002/api/werchow/adherent/adherentestit/${id}`
+    `http://190.231.32.232:5002/api/mutual/adherent/adherentestit/${id}`
   );
 
   dispatch({
@@ -43,7 +43,7 @@ export const mostrarAdherentesDelTitular = id => async dispatch => {
 
 export const bajaAdherente = id => async dispatch => {
   await axios
-    .put(`http://190.231.32.232:5002/api/werchow/adherent/baja/${id}`)
+    .put(`http://190.231.32.232:5002/api/mutual/adherent/baja/${id}`)
 
     .then(
       res =>
@@ -62,7 +62,7 @@ export const bajaAdherente = id => async dispatch => {
 
 export const bajaAdherenteGral = id => async dispatch => {
   await axios
-    .put(`http://190.231.32.232:5002/api/werchow/adherent/bajagral/${id}`)
+    .put(`http://190.231.32.232:5002/api/mutual/adherent/bajagral/${id}`)
 
     .then(
       res =>
@@ -81,7 +81,7 @@ export const bajaAdherenteGral = id => async dispatch => {
 
 export const agregarAdherente = adherente => async dispatch => {
   await axios
-    .post("http://190.231.32.232:5002/api/werchow/adherent/nuevo", adherente)
+    .post("http://190.231.32.232:5002/api/mutual/adherent/nuevo", adherente)
 
     .then(
       res =>
@@ -100,7 +100,7 @@ export const agregarAdherente = adherente => async dispatch => {
 
 export const editarAdherente = adherente => async dispatch => {
   const respuesta = await axios.put(
-    `http://190.231.32.232:5002/api/werchow/adherent/editar/${adherente.NRO_DOC}`,
+    `http://190.231.32.232:5002/api/mutual/adherent/editar/${adherente.NRO_DOC}`,
     adherente
   );
 
