@@ -10,7 +10,11 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 //redux
 import { connect } from "react-redux";
-import { mostrarTitular, bajaTitular } from "../../actions/titularActions";
+import {
+  mostrarTitular,
+  bajaTitular,
+  mostrarCuota
+} from "../../actions/titularActions";
 import { mostrarPagosTitular } from "../../actions/pagosActions";
 import { mostrarPagobcoTitular } from "../../actions/pagobcoActions";
 
@@ -19,7 +23,8 @@ class Titular extends Component {
     titular: {},
     pagos: {},
     pagobco: {},
-    allPagos: {}
+    allPagos: {},
+    cuota: ""
   };
 
   componentDidMount() {
@@ -29,10 +34,12 @@ class Titular extends Component {
     this.props.mostrarPagosTitular(id);
 
     this.props.mostrarPagobcoTitular(id);
+
+    this.props.mostrarCuota(id);
   }
 
   componentWillReceiveProps(nextProps, nextState) {
-    const { titular, pagos, pagobco, memo } = nextProps;
+    const { titular, pagos, pagobco, memo, cuota } = nextProps;
 
     if (titular) {
       if (titular.GRUPO < 3000) {
@@ -52,7 +59,8 @@ class Titular extends Component {
       titular: titular,
       pagos: pagos,
       pagobco: pagobco,
-      memo: memo
+      memo: memo,
+      cuota: cuota
     });
   }
 
@@ -81,23 +89,14 @@ class Titular extends Component {
   };
 
   render() {
-    const { titular, pagos, pagobco, allPagos } = this.state;
-
+    const { titular, pagos, pagobco, allPagos, cuota } = this.state;
+    console.log(cuota);
     if (!titular) return <Spinner />;
 
     const { id } = this.props.match.params;
 
     return (
       <div className="container mt-4">
-        <div className="row">
-          <div className="col-md-6 mb-4">
-            <Link to="/titulares" className="btn btn-secondary">
-              <i className="fas fa-arrow-circle-left"></i> {""}
-              Volver al Listado
-            </Link>
-          </div>
-        </div>
-
         <div className="jumbotron" id="ficha">
           {titular.ESTADO === 1 ? (
             <div className="row mt-4 alert alert-success justify-content-center">
@@ -128,7 +127,7 @@ class Titular extends Component {
             </div>
           </div>
 
-          <InfoTitular titular={titular} />
+          <InfoTitular titular={titular} cuota={cuota} />
         </div>
 
         <hr className="my-4" />
@@ -274,10 +273,14 @@ class Titular extends Component {
 const mapStateToProps = state => ({
   titular: state.titulares.titular,
   pagos: state.pagos.pagos,
-  pagobco: state.pagobco.pagobco
+  pagobco: state.pagobco.pagobco,
+  cuota: state.titulares.cuota
 });
 
-export default connect(
-  mapStateToProps,
-  { mostrarTitular, mostrarPagobcoTitular, mostrarPagosTitular, bajaTitular }
-)(Titular);
+export default connect(mapStateToProps, {
+  mostrarTitular,
+  mostrarPagobcoTitular,
+  mostrarPagosTitular,
+  bajaTitular,
+  mostrarCuota
+})(Titular);

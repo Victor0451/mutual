@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BuscarSocio from "./titulares/BuscarTitular";
 
 export default class Home extends Component {
   render() {
@@ -12,7 +13,8 @@ export default class Home extends Component {
           height="315"
           src="https://wideo.co/embed/26850861567028905008?width=560&height=315&repeat=false&autoplay=false&html5=true"
         ></iframe> */}
+        <BuscarSocio />
       </div>
-    ); 
+    );
   }
-}  
+}
